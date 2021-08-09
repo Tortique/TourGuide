@@ -1,0 +1,30 @@
+version: "3.9"
+
+services:
+
+  tourguide:
+    container_name: tourguide
+    image: tourguide
+    build: ../TourGuide/TourGuideContainer
+    restart: always
+    network_mode: host
+    expose:
+      - 8080
+
+  tourguidegps:
+    container_name: tourguidegps
+    image: tourguidegps
+    build: ../TourGuide-GPS/TourGuide-GPSContainer
+    restart: always
+    network_mode: host
+    expose:
+      - 8082
+
+  tourguidereward:
+    container_name: tourguidereward
+    image: tourguidereward
+    build: ../TourGuide-Reward/TourGuide-RewardContainer
+    restart: always
+    network_mode: host
+    expose:
+      - 8081
